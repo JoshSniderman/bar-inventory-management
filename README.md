@@ -16,6 +16,8 @@ All programs were written between July - September of 2020.
 
 ![map_chart](Images/Search_inventory_ss.png)
 
+![map chart](Images/Search_num.png)
+
 ### Search Cocktail List
 
 ![map_chart](Images/Search_drinklist_ss.png)

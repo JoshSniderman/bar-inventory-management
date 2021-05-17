@@ -46,7 +46,7 @@ The **'Update'*** folder contains programs which primarily focus on adding, chan
 
 ### Insert into Cocktail List
 
-![map_chart](Images/Insert_into_drinklist.png)
+![map_chart](Images/Insert_int_drinklist.png)
 
 ### Update Inventory Records
 

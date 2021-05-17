@@ -16,11 +16,23 @@ The **'Search'*** folder contains programs which primarily focus on searching th
 
 ### Search Inventory Records
 
+To search the bar's inventory of available liquors, provided are two programs, ****search_inventory.ipynb**** and ****search_inventory_num.ipynb***, both of which call data from the **inventory** table. To search for a dimension (string) field with a text specifyer (eg. liquor, brand, etc.), open the ****search_inventory.ipynb**** program, then first specify with "Select" what field to search, then the search term, "As". What returns is a pandas Dataframe of all information regarding that search used (this data will be discussed further under "Insert into Inventory"). 
+
+In the example below, the user wishes to search the subliquor "Bordeaux" within the liquor category "Red Wine". To do this, he first specifies to select from the "subliquor" column, then specifies the search term, "Bordeaux". What returns is the only Bordeaux in the inventory, "Chateau Bellevue Bordeaux", with all associating data.
+
 ![map_chart](Images/Search_inventory_ss.png)
+
+To search a numeric (interger or float) variable, open the ****search_inventory_num.ipynb**** program, then first specify with "Select" what field to search, then place the comparative qualifyer the search term, "To". In the following example, the user wishes to find what liquors have a price greater than $10. To do this, he specifies to search "Price", then states he wants ">" (greater than), and finally specifies "10". What returns is data from 75 products, all of which have a price greater than $10.
 
 ![map chart](Images/Search_num.png)
 
 ### Search Cocktail List
+
+In order to search data regarding mixed drinks served and sold at the bar, the user will use the ****search_cocktail.ipynb**** program, which calls data from two sources, the **drinklist** table, which contains data regarding ingredients and amounts for specific drinks (this will be discussed further under "Insert into Cocktail List"), and the **drink_profit** view, which itself calls and runs calculations on data from the **Inventory**, **drinklist**, and **drink_menu**. The only specifier requested from the user is the name of the drink, and returned is the list of ingredients with amounts, the price, the cost to make, and the profit produced for one drink.
+
+The **drink_profit** first pulls the cocktail name and price from the **drink_menu** table. It then calculates the cost of to produce one drink by calling the ingredients and amounts from **drinklist** and joins price and volume from **inventory** to calculte exact cost to produce one drink. It then joins to subtract Cost from Price to produce Profit. 
+
+In the example below, the user searches for a simple cocktail, a Rum and Coke, with Bacardi Rum. Returned are the two ingredients, the menu price, cost, and profits produced on one order.
 
 ![map_chart](Images/Search_drinklist_ss.png)
 

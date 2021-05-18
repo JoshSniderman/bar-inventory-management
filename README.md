@@ -76,7 +76,7 @@ The program first requests the cocktail name and the number of ingredients. For 
 
 In the example below, the user inserts detail for a simple two ingredient cocktail, a Rum and Coke, made with Bacardi rum:
 
-![map_chart](Images/Insert_int_drinklist.png)
+![map_chart](Images/Insert_int_drinklist_ss.png)
 
 ### Update Inventory Records
 

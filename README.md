@@ -42,13 +42,17 @@ The **'Update'*** folder contains programs which primarily focus on adding, chan
 
 ### Insert into Inventory
 
-![map_chart](Images/Insert_into_inventory_ss.png)
+![map_chart](Images/Insert_int_inventory_ss.png)
 
 ### Insert into Cocktail List
 
 ![map_chart](Images/Insert_int_drinklist.png)
 
 ### Update Inventory Records
+
+Changes are often needed to be made to the items stored in the Inventory, and to do this we use the ****update_inventory.ipynb**** program. When run, the first criteria request is which field needs to be changed, followed by which product the changes will be applied to, specifying ****SKU**** of the product, and finally the value to which will be updated. After this, a call is made to inventory for the product to see changed made.
+
+In the example below, the user needs to change the price of "Chateau Bellevue Bordeaux" to $11.69. The user first specifies the "price" column, then "Chateau Bellevue Bordeaux", and finally updated price "11.69". The updated inventory record is then displayed underneath. 
 
 ![map_chart](Images/Update_inventory_ss.png)
 

@@ -28,9 +28,9 @@ To search a numeric (interger or float) variable, open the ****search_inventory_
 
 ### Search Cocktail List
 
-In order to search data regarding mixed drinks served and sold at the bar, the user will use the ****search_cocktail.ipynb**** program, which calls data from two sources, the **drinklist** table, which contains data regarding ingredients and amounts for specific drinks (this will be discussed further under "Insert into Cocktail List"), and the **drink_profit** view, which itself calls and runs calculations on data from the **Inventory**, **drinklist**, and **drink_menu**. The only specifier requested from the user is the name of the drink, and returned is the list of ingredients with amounts, the price, the cost to make, and the profit produced for one drink.
+In order to search data regarding mixed drinks served and sold at the bar, the user will use the ****search_cocktail.ipynb**** program, which calls data from two sources, the **drinklist** table, which contains data regarding ingredients and amounts for specific drinks (this will be discussed further under "Insert into Cocktail List"), and the **drink_profit** view, which itself calls and runs calculations on data from the **Inventory**, **drinklist**, and **drink_price**. The only specifier requested from the user is the name of the drink, and returned is the list of ingredients with amounts, the price, the cost to make, and the profit produced for one drink.
 
-The **drink_profit** first pulls the cocktail name and price from the **drink_menu** table. It then calculates the cost of to produce one drink by calling the ingredients and amounts from **drinklist** and joins price and volume from **inventory** to calculte exact cost to produce one drink. It then joins to subtract Cost from Price to produce Profit. 
+The **drink_profit** first pulls the cocktail name and price from the **drink_price** table. It then calculates the cost of to produce one drink by calling the ingredients and amounts from **drinklist** and joins price and volume from **inventory** to calculte exact cost to produce one drink. It then joins to subtract Cost from Price to produce Profit. 
 
 In the example below, the user searches for a simple cocktail, a Rum and Coke, with Bacardi Rum. Returned are the two ingredients, the menu price, cost, and profits produced on one order.
 
@@ -42,9 +42,39 @@ The **'Update'*** folder contains programs which primarily focus on adding, chan
 
 ### Insert into Inventory
 
-![map_chart](Images/Insert_int_inventory_ss.png)
+To insert new records into the **Inventory** table, we will use the ****insert_into_inventory.ipynb**** program. Eight details will be requested from the user:
 
-### Insert into Cocktail List
+- ***SKU*** - Stock-Keeping Unit; a unique title for a product. 
+- ***Brand*** - Brand of the product.
+- ***Liquor*** - Particular type of alcohol which the product is categorized.
+- ***Subliquor*** - Subcategory of the ***liquor*** field.
+- ***Volume*** - The volume in *****milliliters***** of one unit ordered.
+- ***Price*** - Wholesale price of one unit ordered.
+- ***Rating*** - If available, professional rating of higher quality liquors. (Insert "null" if unavailable)
+- ***OrderDate*** - Date the product was last ordered. 
+
+In the example below, the red bordeaux with SKU "Chateau Bellevue Bordeax" is added it **Inventory**:
+
+![map_chart](Images/Insert_into_inventory_ss.png)
+
+### Insert into Cocktail Recipe List
+
+The ****insert_into_drinklist.ipynb**** affects two tables, **drinklist** and **drink_price**.
+
+The **drinklist** table stores unique recipes for each cocktail served. Because recipes vary widely, a new record is recorded for each individual ingredient. Three columns are stored:
+
+- ***Cocktail*** - The name of the cocktail.
+- ***Ingredient*** - The specific SKU of the ingredient used.
+- ***Amount*** - The volume amount in *****ounces***** of the ingredient needed.
+
+The **drink_price** table only stores two details:
+
+- ***Cocktail*** - The name of the cocktail.
+- ***Price*** - The menu price of the cocktail.
+
+The program first requests the cocktail name and the number of ingredients. For each ingredient, the ingredint name and amount are then requested, and the number of records added is comfirmed. The price of the cocktail is then request, and comfirmation is displayed if accepted.
+
+In the example below, the user inserts detail for a simple two ingredient cocktail, a Rum and Coke, made with Bacardi rum:
 
 ![map_chart](Images/Insert_int_drinklist.png)
 
